@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var testBtn: UIButton!
     var myBeginPosition = Float32()
     var mycurrentPosition = Float32()
     var totalTravelled = Float32()
@@ -44,7 +45,31 @@ class ViewController: UIViewController {
         {
             mycurrentPosition = Float32(sender.location(in: self.view).y)
             totalTravelled = abs(myBeginPosition) - abs(mycurrentPosition)
-            print(totalTravelled/400)
+            print(totalTravelled)
+            
+            if (totalTravelled < 100)
+            {
+                testBtn.alpha = 1
+            }
+            else if totalTravelled > 100 && totalTravelled < 200
+            {
+                testBtn.alpha = 0.8
+            }
+            else if totalTravelled > 200 && totalTravelled < 300
+            {
+                testBtn.alpha = 0.6
+            }
+
+            else if totalTravelled > 300 && totalTravelled < 400
+            {
+                testBtn.alpha = 0.4
+            }
+            
+            else
+            {
+                testBtn.alpha = 0
+            }
+            
             
         }
     }
